@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanban Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">JavaScript Project</p>
+        <h1>Kanban Pro</h1>
+        <p>Task board with priorities, due dates, search, filters, and localStorage persistence.</p>
+      </div>
+      <button id="clearAllBtn" class="danger">Clear All</button>
+    </header>
+
+    <section class="panel">
+      <form id="taskForm">
+        <input id="titleInput" type="text" placeholder="Task title" required />
+        <select id="statusInput">
+          <option value="todo">To Do</option>
+          <option value="doing">Doing</option>
+          <option value="done">Done</option>
+        </select>
+        <select id="priorityInput">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <input id="dateInput" type="date" required />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <div class="tools">
+        <input id="searchInput" type="text" placeholder="Search tasks..." />
+        <select id="priorityFilter">
+          <option value="all">All priorities</option>
+          <option value="high">High only</option>
+          <option value="medium">Medium only</option>
+          <option value="low">Low only</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article><span>Total</span><strong id="totalStat">0</strong></article>
+      <article><span>To Do</span><strong id="todoStat">0</strong></article>
+      <article><span>Doing</span><strong id="doingStat">0</strong></article>
+      <article><span>Done</span><strong id="doneStat">0</strong></article>
+    </section>
+
+    <section class="board">
+      <section class="column" data-status="todo">
+        <h2>To Do</h2>
+        <div id="todoList" class="task-list"></div>
+      </section>
+
+      <section class="column" data-status="doing">
+        <h2>Doing</h2>
+        <div id="doingList" class="task-list"></div>
+      </section>
+
+      <section class="column" data-status="done">
+        <h2>Done</h2>
+        <div id="doneList" class="task-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
